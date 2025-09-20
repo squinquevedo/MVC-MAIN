@@ -73,11 +73,10 @@ class Usuario
     //Metodo que consulte la BD
 
     public function conseguirTodos(){
-        //var_dump($this->db);
-        $query = $this->db->query("SELECT * FROM t_usuario");
-        return $query;
+    echo 'Imprimiendo todos los usuarios...';
 
-        echo "Imprimiendo todos los usuarios...";
+    $query = $this->db->query("SELECT * FROM t_usuario");
+    return $query;
     }
 
 
