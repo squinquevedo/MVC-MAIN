@@ -17,6 +17,11 @@ class Usuario
         $this->db = database::conectar();
     }
 
+     function getid_usuario()
+    {
+        return $this->id_usuario;
+    }
+
     function getNombre()
     {
         return $this->nombre;
@@ -24,7 +29,7 @@ class Usuario
 
     function getApellidos()
     {
-        return $this->apellido;
+        return $this->apellidos;
     }
 
     function getEmail()
@@ -39,6 +44,12 @@ class Usuario
 
     //Set
 
+    function setid_usuario($id_usuario)
+    {
+        return $this->id_usuario;
+    }
+   
+   
     function setNombre($nombre)
     {
         return $this->nombre;
@@ -66,8 +77,17 @@ class Usuario
         $query = $this->db->query("SELECT * FROM t_usuario");
         return $query;
 
-        echo 'Imprimiendo todos los usuarios.....';
+        echo "Imprimiendo todos los usuarios...";
     }
 
+
+    public function crear(){
+        $sql = "INSERT INTO t_usuario(id_usuario, nombre, apellido, email, password);
+        VALUES({$this->id_usuario},'{$this->nombre}','{$this->apellidos}','{$this->email}','{$this->password}');";
+
+        $guardar = $this->db->query($sql);
+        return $guardar;
+    }
+    
     
 }

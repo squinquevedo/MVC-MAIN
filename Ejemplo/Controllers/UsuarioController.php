@@ -14,6 +14,16 @@ class UsuarioController{
     }
 
     public function crear(){
+        require_once './Views/Usuarios/UsuarioModel.php';
+        $PracticanteDeBodega = new usuario();
+        $PracticanteDeBodega->setid_usuario('null');
+        $PracticanteDeBodega->setNombre('Juan Sebastian');
+        $PracticanteDeBodega->setApellidos('Nieto');
+        $PracticanteDeBodega->setEmail('jnieto@gmail');
+        $PracticanteDeBodega->setPassword('abc2123');
+
+        $guardar=$PracticanteDeBodega->crear();
+
         require_once './Views/Usuarios/crear.php';
     }
 }
